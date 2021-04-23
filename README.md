@@ -1,4 +1,6 @@
 ![core finance control banner](https://github.com/glaulher/core_finance_control/blob/main/image/Banner.png)
+# Core Finance Control
+***
 App made to practice software development 
 
 - Practice database modeling;
