@@ -1,8 +1,4 @@
-# Core
-
-Finance Control
-
-app made to practice software development - 
+![core finance control banner](https://github.com/glaulher/core_finance_control/blob/main/image/Banner.png)App made to practice software development -
 
 ER
 
