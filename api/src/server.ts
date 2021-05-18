@@ -5,6 +5,7 @@ import './database';
 
 const app = express();
 app.use(express.json());
+
 app.use(router);
 
 // eslint-disable-next-line no-console

@@ -7,7 +7,7 @@ class CashInfusion {
   readonly id: string;
 
   @Column()
-  cash_infusion: boolean;
+  cash_infusion: number;
 
   constructor() {
     if (!this.id) {
