@@ -42,7 +42,7 @@ class flow {
   @ManyToOne(() => Parcel)
   parcel: Parcel;
 
-  @Column('decimal(10,2)')
+  @Column('decimal')
   cash: number;
 
   @Column()

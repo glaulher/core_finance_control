@@ -13,7 +13,7 @@ export class CreateCashInfusion1620347392710 implements MigrationInterface {
           },
           {
             name: 'cash_infusion',
-            type: 'boolean',
+            type: 'int',
           },
         ],
       }),
