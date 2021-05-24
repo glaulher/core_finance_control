@@ -47,6 +47,10 @@ export class CreateFlow1620432370917 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'date',
+            type: 'timestamp with time zone',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

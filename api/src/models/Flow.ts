@@ -13,7 +13,7 @@ import { Category } from './Category';
 import { Parcel } from './Parcel';
 
 @Entity('flow')
-class flow {
+class Flow {
   @PrimaryColumn()
   readonly id: string; // ver se precisa de readonly
 
@@ -28,18 +28,21 @@ class flow {
   readonly id_category: string;
 
   @ManyToOne(() => Category)
+  @JoinColumn({ name: 'id_category' })
   category: Category;
 
   @Column()
   readonly id_user: string;
 
   @ManyToOne(() => User)
+  @JoinColumn({ name: 'id_user' })
   user: User;
 
   @Column()
   readonly id_parcel: string;
 
   @ManyToOne(() => Parcel)
+  @JoinColumn({ name: 'id_parcel' })
   parcel: Parcel;
 
   @Column('decimal')
@@ -47,6 +50,9 @@ class flow {
 
   @Column()
   description: string;
+
+  @Column()
+  date: Date;
 
   @CreateDateColumn()
   created_at: Date;
@@ -57,4 +63,4 @@ class flow {
     }
   }
 }
-export { flow };
+export { Flow };
