@@ -1,30 +1,30 @@
-import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
-import { User } from '../models/User';
+import { getCustomRepository } from 'typeorm';
+import { UsersRepository } from '../repositories/UsersRepository';
 
+interface RequestDTO {
+  user_name: string;
+  email: string;
+}
 class UserController {
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async create(req: Request, res: Response) {
-    const { name, email } = req.body;
-    // repository
-    const userRepository = getRepository(User);
+  async create({ user_name, email }: RequestDTO): Promise<RequestDTO> {
+    const usersRepository = getCustomRepository(UsersRepository);
 
-    // check email duplicate
-    const userAlreadyExists = await userRepository.findOne({
-      email,
+    const userAlreadyExists = await usersRepository.findOne({
+      where: { email },
     });
+
     if (userAlreadyExists) {
-      return res.status(400).json({
-        error: 'usuário já cadastrado',
-      });
+      throw new Error('This e-mail is already registered.');
     }
-    // end email duplicate
-    const user = userRepository.create({
-      name,
+
+    const user = usersRepository.create({
+      user_name,
       email,
     });
-    await userRepository.save(user);
-    return res.json(user);
+
+    await usersRepository.save(user);
+
+    return user;
   }
 }
 
